@@ -27,7 +27,7 @@ pub fn get_nuclides() -> Vec<Nuclide> {
     }
 
     vec![
-        nuclide!{0, 1},
+        nuclide!{0, 1, 610.1, Decay::beta_minus()},
     ]
 }
 

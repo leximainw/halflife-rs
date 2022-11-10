@@ -41,6 +41,17 @@ pub struct Decay {
     qty: f64,
 }
 
+impl Decay {
+    pub fn beta_minus() -> Vec<Decay> {
+        vec![
+            Decay{
+                decay: DecayMode::BetaMinus,
+                qty: 1.0,
+            }
+        ]
+    }
+}
+
 pub enum DecayMode {
     BetaMinus,
 }

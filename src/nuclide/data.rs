@@ -13,7 +13,17 @@ pub fn get_nuclides() -> Vec<Nuclide> {
                 half_life: None,
                 decay_modes: vec![],
             }
-        }
+        };
+        ($protons: literal, $neutrons: literal,
+            $half_life: literal, $decay_modes: expr
+        ) => {
+            Nuclide{
+                protons: $protons,
+                neutrons: $neutrons,
+                half_life: Some($half_life),
+                decay_modes: $decay_modes,
+            }
+        };
     }
 
     vec![

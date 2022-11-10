@@ -66,8 +66,18 @@ impl Decay {
             }
         ]
     }
+
+    pub fn neutron_emission() -> Vec<Decay> {
+        vec![
+            Decay{
+                decay: DecayMode::NeutronEmission,
+                qty: 1.0,
+            }
+        ]
+    }
 }
 
 pub enum DecayMode {
     BetaMinus,
+    NeutronEmission,
 }

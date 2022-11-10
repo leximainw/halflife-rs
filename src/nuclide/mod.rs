@@ -24,6 +24,14 @@ impl Nuclide {
     }
 
     #[inline]
+    pub fn half_life(&self) -> f64 {
+        match self.half_life{
+            Some(half_life) => half_life,
+            None => f64::INFINITY,
+        }
+    }
+
+    #[inline]
     pub fn name(&self) -> String {
         format!("{}-{}",
             get_element_names()[self.protons as usize],

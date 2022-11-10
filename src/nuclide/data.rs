@@ -28,6 +28,8 @@ pub fn get_nuclides() -> Vec<Nuclide> {
 
     vec![
         nuclide!{0, 1, 610.1, Decay::beta_minus()},
+        nuclide!{1, 0},
+        nuclide!{1, 1},
     ]
 }
 
@@ -35,6 +37,7 @@ pub fn get_nuclides() -> Vec<Nuclide> {
 pub fn get_element_names() -> &'static [&'static str] {
     &[
         "neutron",
+        "hydrogen",
     ]
 }
 
@@ -42,5 +45,6 @@ pub fn get_element_names() -> &'static [&'static str] {
 pub fn get_element_symbols() -> &'static [&'static str] {
     &[
         "n",
+        "H",
     ]
 }

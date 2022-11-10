@@ -72,10 +72,12 @@ macro_rules! shorthand{
 
 impl Decay {
     shorthand!(beta_minus, BetaMinus);
+    shorthand!(double_neutron_emission, DoubleNeutronEmission);
     shorthand!(neutron_emission, NeutronEmission);
 }
 
 pub enum DecayMode {
     BetaMinus,
+    DoubleNeutronEmission,
     NeutronEmission,
 }

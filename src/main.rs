@@ -15,6 +15,16 @@ fn main() {
 fn convert_half_life(half_life: f64) -> String {
     return if half_life.is_infinite() {
         "stable".to_string()
+    } else if half_life < 1e-21 {
+        format!("{:.3} ys", half_life * 1e24)
+    } else if half_life < 1e-18 {
+        format!("{:.3} zs", half_life * 1e21)
+    } else if half_life < 1e-15 {
+        format!("{:.3} as", half_life * 1e18)
+    } else if half_life < 1e-12 {
+        format!("{:.3} fs", half_life * 1e15)
+    } else if half_life < 1e-9 {
+        format!("{:.3} ps", half_life * 1e12)
     } else if half_life < 1e-6 {
         format!("{:.3} ns", half_life * 1e9)
     } else if half_life < 0.001 {

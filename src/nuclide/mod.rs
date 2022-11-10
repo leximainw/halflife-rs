@@ -8,7 +8,7 @@ pub use data::{
 pub struct Nuclide {
     protons: i32,
     neutrons: i32,
-    half_life: Option<f64>,
+    half_life: Option<(f64, f64)>,
     decay_modes: Vec<Decay>,
 }
 
@@ -26,8 +26,16 @@ impl Nuclide {
     #[inline]
     pub fn half_life(&self) -> f64 {
         match self.half_life{
-            Some(half_life) => half_life,
+            Some(half_life) => half_life.0,
             None => f64::INFINITY,
+        }
+    }
+
+    #[inline]
+    pub fn half_life_with_error(&self) -> (f64, f64) {
+        match self.half_life{
+            Some(half_life) => half_life,
+            None => (f64::INFINITY, 0.0),
         }
     }
 

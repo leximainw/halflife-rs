@@ -15,7 +15,7 @@ pub fn get_nuclides() -> Vec<Nuclide> {
             }
         };
         ($protons: literal, $neutrons: literal,
-            $half_life: literal, $decay_modes: expr
+            $half_life: expr, $decay_modes: expr
         ) => {
             Nuclide{
                 protons: $protons,
@@ -27,11 +27,11 @@ pub fn get_nuclides() -> Vec<Nuclide> {
     }
 
     vec![
-        nuclide!{0, 1, 610.1, Decay::beta_minus()},
+        nuclide!{0, 1, (610.1, 0.7), Decay::beta_minus()},
         nuclide!{1, 0},
         nuclide!{1, 1},
-        nuclide!{1, 2, 3.8852352e8, Decay::beta_minus()},
-        nuclide!{1, 3, 1.39e-22, Decay::beta_minus()},
+        nuclide!{1, 2, (3.8852352e8, 6.3072e5), Decay::beta_minus()},
+        nuclide!{1, 3, (1.39e-22, 1.0e-23), Decay::beta_minus()},
     ]
 }
 

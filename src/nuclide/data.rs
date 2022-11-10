@@ -32,6 +32,7 @@ pub fn get_nuclides() -> Vec<Nuclide> {
         nuclide!{1, 1},
         nuclide!{1, 2, (3.8852352e8, 6.3072e5), Decay::beta_minus()},
         nuclide!{1, 3, (1.39e-22, 1.0e-23), Decay::beta_minus()},
+        nuclide!{1, 4, (8.6e-23, 6e-24), Decay::neutron_emission()},
     ]
 }
 

@@ -19,3 +19,17 @@ pub fn get_nuclides() -> Vec<Nuclide> {
         }
     ]
 }
+
+#[inline]
+pub fn get_element_names() -> &'static [&'static str] {
+    &[
+        "neutron",
+    ]
+}
+
+#[inline]
+pub fn get_element_symbols() -> &'static [&'static str] {
+    &[
+        "n",
+    ]
+}

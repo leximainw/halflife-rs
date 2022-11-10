@@ -3,5 +3,8 @@ mod nuclide;
 use nuclide::Nuclide;
 
 fn main() {
-    println!("Hello, world!");
+    let nuclides = Nuclide::all();
+    for nuclide in nuclides {
+        println!("{}", nuclide.name());
+    }
 }

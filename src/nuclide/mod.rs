@@ -1,5 +1,9 @@
 mod data;
-use data::get_nuclides;
+pub use data::{
+    get_nuclides,
+    get_element_names,
+    get_element_symbols,
+};
 
 pub struct Nuclide {
     protons: i32,
@@ -9,6 +13,23 @@ pub struct Nuclide {
 }
 
 impl Nuclide {
+    #[inline]
+    pub fn atomic_number(&self) -> i32 {
+        self.protons
+    }
+
+    #[inline]
+    pub fn atomic_mass_number(&self) -> i32 {
+        self.protons + self.neutrons
+    }
+
+    #[inline]
+    pub fn name(&self) -> String {
+        format!("{}-{}",
+            get_element_names()[self.protons as usize],
+            self.atomic_mass_number())
+    }
+
     #[inline]
     pub fn all() -> Vec<Nuclide> {
         get_nuclides()

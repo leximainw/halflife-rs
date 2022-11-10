@@ -5,18 +5,19 @@ use super::{
 };
 
 pub fn get_nuclides() -> Vec<Nuclide> {
-    vec![
-        Nuclide{
-            protons: 0,
-            neutrons: 1,
-            half_life: Some(610.1),
-            decay_modes: vec![
-                Decay{
-                    decay: DecayMode::BetaMinus,
-                    qty: 1.0,
-                }
-            ],
+    macro_rules! nuclide {
+        ($protons: literal, $neutrons: literal) => {
+            Nuclide{
+                protons: $protons,
+                neutrons: $neutrons,
+                half_life: None,
+                decay_modes: vec![],
+            }
         }
+    }
+
+    vec![
+        nuclide!{0, 1},
     ]
 }
 

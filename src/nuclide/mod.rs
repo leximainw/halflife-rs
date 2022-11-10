@@ -57,24 +57,22 @@ pub struct Decay {
     qty: f64,
 }
 
-impl Decay {
-    pub fn beta_minus() -> Vec<Decay> {
-        vec![
-            Decay{
-                decay: DecayMode::BetaMinus,
-                qty: 1.0,
-            }
-        ]
-    }
+macro_rules! shorthand{
+    ($name: ident, $mode: ident) => {
+        pub fn $name() -> Vec<Decay> {
+            vec![
+                Decay{
+                    decay: DecayMode::$mode,
+                    qty: 1.0,
+                }
+            ]
+        }
+    };
+}
 
-    pub fn neutron_emission() -> Vec<Decay> {
-        vec![
-            Decay{
-                decay: DecayMode::NeutronEmission,
-                qty: 1.0,
-            }
-        ]
-    }
+impl Decay {
+    shorthand!(beta_minus, BetaMinus);
+    shorthand!(neutron_emission, NeutronEmission);
 }
 
 pub enum DecayMode {
